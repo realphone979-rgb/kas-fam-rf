@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Admin - KAS FAM RF</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    .login-box {
+      width: 90%;
+      max-width: 380px;
+      padding: 30px;
+      border-radius: 18px;
+      background: #1d1d1d;
+      box-shadow: 0 10px 30px rgba(0,0,0,.5);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #303030;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: #e91e63;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: .9;
+    }
+
+    #error {
+      display: none;
+      margin-top: 15px;
+      text-align: center;
+      color: #ff5252;
+    }
+
+    .back {
+      display: block;
+      margin-top: 18px;
+      text-align: center;
+      color: #aaa;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-box">
+
+    <h2>🔐 Login Admin</h2>
+
+    <input
+      type="text"
+      id="username"
+      placeholder="Nama pengguna"
+      autocomplete="username"
+    >
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Kata sandi"
+      autocomplete="current-password"
+    >
+
+    <button onclick="login()">MASUK</button>
+
+    <div id="error">
+      Nama pengguna atau kata sandi salah.
+    </div>
+
+    <a class="back" href="index.html">
+      ← Kembali ke halaman utama
+    </a>
+
+  </div>
+
+  <script>
+    function login() {
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // LOGIN SEMENTARA
+      const adminUsername = "admin";
+      const adminPassword = "admin123";
+
+      if (username === adminUsername && password === adminPassword) {
+
+        sessionStorage.setItem("adminLogin", "true");
+
+        window.location.href = "admin.html";
+
+      } else {
+
+        document.getElementById("error").style.display = "block";
+
+      }
+    }
+  </script>
+
+</body>
+</html>
